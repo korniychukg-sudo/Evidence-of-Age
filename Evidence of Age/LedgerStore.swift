@@ -111,11 +111,25 @@ struct LedgerState: Codable {
     var jobPeriods: [String] = []
     var jobClaimed: Bool = false
     var introSeen: Bool = false
+    var money: Int = 90
+    var tools: [String] = []
+    var principalRep: [String: Int] = [:]
+    var board: [Consignment] = []
+    var boardDay: String = ""
+    var taken: [Consignment] = []
+    var filled: Int = 0
+    var missed: Int = 0
+    var earned: Int = 0
+    var lastResult: String = ""
+
+    var repTotal: Int { principalRep.values.reduce(0, +) }
 }
 
 final class LedgerStore: ObservableObject {
     @Published var state = LedgerState()
     @Published var lastBadge: Badge?
+    @Published var lastConsignment: Consignment?
+    @Published var lastConsignmentMiss: String?
     private let key = "evidence.of.age.state.v1"
 
     init() {
@@ -124,16 +138,96 @@ final class LedgerStore: ObservableObject {
     }
 
     func load() {
+        defer { syncKit() }
         guard let d = UserDefaults.standard.data(forKey: key),
               let s = try? JSONDecoder().decode(LedgerState.self, from: d) else { return }
         state = s
     }
     func saveNow() {
+        syncKit()
         guard let d = try? JSONEncoder().encode(state) else { return }
         UserDefaults.standard.set(d, forKey: key)
     }
 
+    var kit: DeskKit { DeskKit(owned: state.tools) }
+
+    func syncKit() { ActiveDeskKit.current = kit }
+
+    func refreshBoard(_ now: Date = Date()) {
+        let today = dayKey(now)
+        var changed = false
+        var still: [Consignment] = []
+        for c in state.taken {
+            if c.done { continue }
+            if c.daysLeft(now) < 0 {
+                state.missed += 1
+                state.principalRep[c.principal] = max(0, (state.principalRep[c.principal] ?? 0) - 12)
+                state.lastResult = "\(principalBySlug(c.principal).name) took it elsewhere."
+                changed = true
+            } else {
+                still.append(c)
+            }
+        }
+        if still.count != state.taken.count { state.taken = still }
+        if state.boardDay != today {
+            state.boardDay = today
+            let busy = Set(state.taken.map { $0.principal })
+            state.board = rollConsignments(state.repTotal, level: DealerRank.level(state.xp), now: now)
+                .filter { !busy.contains($0.principal) }
+            changed = true
+        }
+        if changed { saveNow() }
+    }
+
+    func takeConsignment(_ c: Consignment) {
+        guard !state.taken.contains(where: { $0.id == c.id }) else { return }
+        var copy = c
+        copy.taken = true
+        state.taken.append(copy)
+        state.board.removeAll { $0.id == c.id }
+        saveNow()
+    }
+
+    func dropConsignment(_ c: Consignment) {
+        state.taken.removeAll { $0.id == c.id }
+        state.principalRep[c.principal] = max(0, (state.principalRep[c.principal] ?? 0) - 5)
+        saveNow()
+    }
+
+    @discardableResult
+    func settle(_ d: Dating) -> Consignment? {
+        for i in state.taken.indices where !state.taken[i].done {
+            let c = state.taken[i]
+            guard datingMatches(c, dating: d) else { continue }
+            state.taken[i].done_ += 1
+            if state.taken[i].done_ >= c.count {
+                state.taken[i].done = true
+                state.money += c.pay
+                state.earned += c.pay
+                state.filled += 1
+                state.principalRep[c.principal] = (state.principalRep[c.principal] ?? 0) + c.rep
+                state.lastResult = "\(principalBySlug(c.principal).name) paid \(c.pay)."
+                addXP(c.pay)
+                let done = state.taken[i]
+                state.taken.removeAll { $0.id == c.id }
+                saveNow()
+                return done
+            }
+            saveNow()
+            return state.taken.first { $0.id == c.id }
+        }
+        return nil
+    }
+
+    func buyTool(_ t: DeskTool) {
+        guard state.money >= t.price, !state.tools.contains(t.slug) else { return }
+        state.money -= t.price
+        state.tools.append(t.slug)
+        saveNow()
+    }
+
     func rollDay(_ now: Date = Date()) {
+        refreshBoard(now)
         let today = dayKey(now)
         if state.lastDay != today {
             if let prev = Calendar.current.date(byAdding: .day, value: -1, to: now),
@@ -204,6 +298,13 @@ final class LedgerStore: ObservableObject {
     }
 
     func file(_ d: Dating) {
+        lastConsignment = settle(d)
+        if lastConsignment == nil {
+            lastConsignmentMiss = state.taken.compactMap { datingMissedBy($0, dating: d) }.first
+        } else {
+            lastConsignmentMiss = nil
+        }
+        state.money += 14 + Int(d.score * 40)
         state.datings.insert(d, at: 0)
         state.jobDated += 1
         if d.inside && (d.to - d.from) <= 40 { state.jobTight += 1 }

@@ -225,7 +225,7 @@ struct InspectView: View {
                                     DragGesture(minimumDistance: 0)
                                         .onChanged { g in
                                             probe = g.location
-                                            reveal = min(1, reveal + 0.022)
+                                            reveal = min(1, reveal + 0.022 / max(0.4, ActiveDeskKit.current.revealEase * ActiveDeskKit.current.scopeBonus))
                                         }
                                         .onEnded { _ in
                                             if spot.kind.lens == "count" { taps += 1 }

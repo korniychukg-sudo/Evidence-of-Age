@@ -327,6 +327,35 @@ struct ExamView: View {
                         }
                     }
                 }
+                if filed, let c = store.lastConsignment {
+                    VStack(alignment: .leading, spacing: 5) {
+                        SectionTitle(text: c.done ? "Instruction filled" : "One filed")
+                        Text(principalBySlug(c.principal).name)
+                            .font(Age.serifBold(16)).foregroundColor(Age.ink)
+                        Text(c.done
+                             ? "Paid \(c.pay). Standing with them is up \(c.rep)."
+                             : "\(c.done_) of \(c.count) filed. They are waiting on the rest.")
+                            .font(Age.serif(14)).foregroundColor(Age.inkSoft)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 4).fill(Age.moss.opacity(0.14))
+                        .overlay(RoundedRectangle(cornerRadius: 4)
+                            .stroke(Age.moss.opacity(0.5), lineWidth: 1)))
+                } else if filed, let m = store.lastConsignmentMiss {
+                    VStack(alignment: .leading, spacing: 5) {
+                        SectionTitle(text: "Not what was instructed")
+                        Text(m).font(Age.serif(14)).foregroundColor(Age.inkSoft)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 4).fill(Age.card)
+                        .overlay(RoundedRectangle(cornerRadius: 4)
+                            .stroke(Age.inkPale.opacity(0.34), lineWidth: 1)))
+                }
+
                 PillButton(title: "Into the ledger") {
                     if !filed { filed = true; store.file(r) }
                     onQuit()

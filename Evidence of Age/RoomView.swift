@@ -103,6 +103,17 @@ struct SaleroomScene: View {
     }
 }
 
+struct AgeStatChip: View {
+    let value: String
+    let label: String
+    var body: some View {
+        VStack(spacing: 2) {
+            Text(value).font(Age.serifBold(17)).foregroundColor(Age.ink)
+            Text(label.uppercased()).font(Age.serif(9)).tracking(1.5).foregroundColor(Age.inkPale)
+        }
+    }
+}
+
 struct RoomRootView: View {
     @EnvironmentObject var store: LedgerStore
     let goToBench: () -> Void
@@ -134,6 +145,27 @@ struct RoomRootView: View {
                         }
                         .overlay(Rectangle().stroke(Age.inkPale.opacity(0.4), lineWidth: 1))
 
+                    feesCard
+                    if !store.state.taken.isEmpty {
+                        SectionTitle(text: "Instructed on")
+                        ForEach(store.state.taken) { c in
+                            NavigationLink(destination: ConsignmentPage(consignment: c, taken: true)) {
+                                ConsignmentCard(consignment: c, now: now, taken: true)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                    if !store.state.board.isEmpty {
+                        SectionTitle(text: "Waiting in the office")
+                        ForEach(store.state.board) { c in
+                            NavigationLink(destination: ConsignmentPage(consignment: c, taken: false)) {
+                                ConsignmentCard(consignment: c, now: now, taken: false)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                    NavigationLink(destination: DeskShopView()) { benchRow }
+                        .buttonStyle(.plain)
                     rankCard
                     lotCard
                     jobCard
@@ -151,7 +183,7 @@ struct RoomRootView: View {
             }
         }
         .onReceive(tick) { _ in t += 0.6; now = Date() }
-        .onAppear { store.rollDay() }
+        .onAppear { store.rollDay(); store.refreshBoard(now) }
     }
 
     private var greeting: String {
@@ -160,6 +192,47 @@ struct RoomRootView: View {
         if hour < 15 { return "The saleroom is quiet" }
         if hour < 19 { return "Cataloguing" }
         return "The lamp is on"
+    }
+
+    private var feesCard: some View {
+        CardBox {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("FEES BANKED").font(Age.serif(10)).tracking(2.0)
+                            .foregroundColor(Age.inkPale)
+                        Text("\(store.state.money)").font(Age.serifBold(26)).foregroundColor(Age.ink)
+                    }
+                    Spacer()
+                    HStack(spacing: 16) {
+                        AgeStatChip(value: "\(store.state.filled)", label: "filed")
+                        AgeStatChip(value: "\(store.state.missed)", label: "lost")
+                        AgeStatChip(value: "\(store.state.tools.count)/\(deskTools.count)", label: "bench")
+                    }
+                }
+                if !store.state.lastResult.isEmpty {
+                    Rule()
+                    Text(store.state.lastResult).font(Age.serifItalic(13))
+                        .foregroundColor(Age.inkSoft)
+                }
+            }
+        }
+    }
+
+    private var benchRow: some View {
+        CardBox {
+            HStack(spacing: 12) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("The bench").font(Age.serifBold(16)).foregroundColor(Age.ink)
+                    Text(store.state.tools.count == deskTools.count
+                         ? "Nothing left in the catalogue you do not own."
+                         : "\(deskTools.count - store.state.tools.count) still to buy. Instruments change what the piece will tell you.")
+                        .font(Age.serif(13)).foregroundColor(Age.inkPale)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                Spacer()
+            }
+        }
     }
 
     private var rankCard: some View {
