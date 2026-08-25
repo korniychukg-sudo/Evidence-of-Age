@@ -1,0 +1,364 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+/* Begin PBXBuildFile section */
+		EA00000000000000003000 /* AgeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001000 /* AgeComponents.swift */; };
+		EA00000000000000003001 /* AgeIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001001 /* AgeIcons.swift */; };
+		EA00000000000000003002 /* AgeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001002 /* AgeRootView.swift */; };
+		EA00000000000000003003 /* AgeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001003 /* AgeTheme.swift */; };
+		EA00000000000000003004 /* BenchViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001004 /* BenchViews.swift */; };
+		EA00000000000000003005 /* BookLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001005 /* BookLibrary.swift */; };
+		EA00000000000000003006 /* BookViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001006 /* BookViews.swift */; };
+		EA00000000000000003007 /* EvidenceOfAgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001007 /* EvidenceOfAgeApp.swift */; };
+		EA00000000000000003008 /* ExamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001008 /* ExamSession.swift */; };
+		EA00000000000000003009 /* InspectViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001009 /* InspectViews.swift */; };
+		EA00000000000000003010 /* LedgerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001010 /* LedgerStore.swift */; };
+		EA00000000000000003011 /* LedgerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001011 /* LedgerViews.swift */; };
+		EA00000000000000003012 /* PieceLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001012 /* PieceLibrary.swift */; };
+		EA00000000000000003013 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001013 /* RoomView.swift */; };
+		EA00000000000000003014 /* TimelineViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00000000000000001014 /* TimelineViews.swift */; };
+		EA00000000000000004001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA00000000000000002001 /* Assets.xcassets */; };
+		EA00000000000000004002 /* Art in Resources */ = {isa = PBXBuildFile; fileRef = EA00000000000000002002 /* Art */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EA00000000000000001000 /* AgeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeComponents.swift; sourceTree = "<group>"; };
+		EA00000000000000001001 /* AgeIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeIcons.swift; sourceTree = "<group>"; };
+		EA00000000000000001002 /* AgeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeRootView.swift; sourceTree = "<group>"; };
+		EA00000000000000001003 /* AgeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeTheme.swift; sourceTree = "<group>"; };
+		EA00000000000000001004 /* BenchViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchViews.swift; sourceTree = "<group>"; };
+		EA00000000000000001005 /* BookLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLibrary.swift; sourceTree = "<group>"; };
+		EA00000000000000001006 /* BookViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViews.swift; sourceTree = "<group>"; };
+		EA00000000000000001007 /* EvidenceOfAgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceOfAgeApp.swift; sourceTree = "<group>"; };
+		EA00000000000000001008 /* ExamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSession.swift; sourceTree = "<group>"; };
+		EA00000000000000001009 /* InspectViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectViews.swift; sourceTree = "<group>"; };
+		EA00000000000000001010 /* LedgerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerStore.swift; sourceTree = "<group>"; };
+		EA00000000000000001011 /* LedgerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerViews.swift; sourceTree = "<group>"; };
+		EA00000000000000001012 /* PieceLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceLibrary.swift; sourceTree = "<group>"; };
+		EA00000000000000001013 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
+		EA00000000000000001014 /* TimelineViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViews.swift; sourceTree = "<group>"; };
+		EA00000000000000002001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA00000000000000002002 /* Art */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Art; sourceTree = "<group>"; };
+		EA00000000000000002090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA00000000000000002099 /* Evidence of Age.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Evidence of Age.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA00000000000000005001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA00000000000000006001 = {
+			isa = PBXGroup;
+			children = (
+				EA00000000000000006002 /* Evidence of Age */,
+				EA00000000000000006003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA00000000000000006002 /* Evidence of Age */ = {
+			isa = PBXGroup;
+			children = (
+				EA00000000000000001000 /* AgeComponents.swift */,
+				EA00000000000000001001 /* AgeIcons.swift */,
+				EA00000000000000001002 /* AgeRootView.swift */,
+				EA00000000000000001003 /* AgeTheme.swift */,
+				EA00000000000000001004 /* BenchViews.swift */,
+				EA00000000000000001005 /* BookLibrary.swift */,
+				EA00000000000000001006 /* BookViews.swift */,
+				EA00000000000000001007 /* EvidenceOfAgeApp.swift */,
+				EA00000000000000001008 /* ExamSession.swift */,
+				EA00000000000000001009 /* InspectViews.swift */,
+				EA00000000000000001010 /* LedgerStore.swift */,
+				EA00000000000000001011 /* LedgerViews.swift */,
+				EA00000000000000001012 /* PieceLibrary.swift */,
+				EA00000000000000001013 /* RoomView.swift */,
+				EA00000000000000001014 /* TimelineViews.swift */,
+				EA00000000000000002001 /* Assets.xcassets */,
+				EA00000000000000002002 /* Art */,
+				EA00000000000000002090 /* Info.plist */,
+			);
+			path = "Evidence of Age";
+			sourceTree = "<group>";
+		};
+		EA00000000000000006003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA00000000000000002099 /* Evidence of Age.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA00000000000000007001 /* Evidence of Age */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA00000000000000008001 /* Build configuration list for PBXNativeTarget "Evidence of Age" */;
+			buildPhases = (
+				EA00000000000000009001 /* Sources */,
+				EA00000000000000005001 /* Frameworks */,
+				EA00000000000000009002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Evidence of Age";
+			productName = "Evidence of Age";
+			productReference = EA00000000000000002099 /* Evidence of Age.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA00000000000000009501 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					EA00000000000000007001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = EA00000000000000008002 /* Build configuration list for PBXProject "Evidence of Age" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA00000000000000006001;
+			productRefGroup = EA00000000000000006003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA00000000000000007001 /* Evidence of Age */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA00000000000000009002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA00000000000000004001 /* Assets.xcassets in Resources */,
+				EA00000000000000004002 /* Art in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA00000000000000009001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA00000000000000003000 /* AgeComponents.swift in Sources */,
+				EA00000000000000003001 /* AgeIcons.swift in Sources */,
+				EA00000000000000003002 /* AgeRootView.swift in Sources */,
+				EA00000000000000003003 /* AgeTheme.swift in Sources */,
+				EA00000000000000003004 /* BenchViews.swift in Sources */,
+				EA00000000000000003005 /* BookLibrary.swift in Sources */,
+				EA00000000000000003006 /* BookViews.swift in Sources */,
+				EA00000000000000003007 /* EvidenceOfAgeApp.swift in Sources */,
+				EA00000000000000003008 /* ExamSession.swift in Sources */,
+				EA00000000000000003009 /* InspectViews.swift in Sources */,
+				EA00000000000000003010 /* LedgerStore.swift in Sources */,
+				EA00000000000000003011 /* LedgerViews.swift in Sources */,
+				EA00000000000000003012 /* PieceLibrary.swift in Sources */,
+				EA00000000000000003013 /* RoomView.swift in Sources */,
+				EA00000000000000003014 /* TimelineViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EA00000000000000008101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EA00000000000000008102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		EA00000000000000008103 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Evidence of Age/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidenceofage.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA00000000000000008104 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Evidence of Age/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidenceofage.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA00000000000000008001 /* Build configuration list for PBXNativeTarget "Evidence of Age" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA00000000000000008103 /* Debug */,
+				EA00000000000000008104 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA00000000000000008002 /* Build configuration list for PBXProject "Evidence of Age" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA00000000000000008101 /* Debug */,
+				EA00000000000000008102 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA00000000000000009501 /* Project object */;
+}
